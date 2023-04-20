@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import PrimeVue from 'primevue/config';
 import '@fortawesome/fontawesome-free/css/all.min.css'
+import moment from 'moment'
 
 // Components Prime Vue
 import Menu from 'primevue/menu';

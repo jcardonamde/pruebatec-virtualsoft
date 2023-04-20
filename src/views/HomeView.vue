@@ -31,112 +31,208 @@
       <div class="form-outer">
         <form class="form_ppal" id="form_ppal">
           <div class="page slide-page">
-            <div class="field">
-              <label for="country-select" class="label">País</label>
-              <select v-model="country" name="country-select" id="country-select" class="select">
-                <option disabled selected>Seleccione un país</option>
-              </select>
+
+            <!-- Grupo Country -->
+            <div class="formulario__grupo" id="group__country">
+              <label for="country" class="formulario__label">País</label>
+              <div class="formulario__grupo-input">
+                <select v-model="country" name="country" id="country" class="formulario__input validatePage1" required>
+                  <option disabled selected>Seleccione un país</option>
+                </select>
+                <i class="formulario__validacion-estado fas fa-times-circle me-3"></i>
+              </div>
+              <p class="formulario__input-error">
+                Seleccione un país válido. El campo no puede estar vacío.
+              </p>
             </div>
-            <div class="field">
-              <label for="gender" class="label">Genero</label>
-              <select v-model="gender" name="gender" id="gender" class="select">
-                <option disabled selected>Seleccione un género</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
-              </select>
+
+            <!-- Grupo Gender -->
+            <div class="formulario__grupo" id="group__gender">
+              <label for="gender" class="formulario__label">Genero</label>
+              <div class="formulario__grupo-input">
+                <select v-model="gender" name="gender" id="gender" class="formulario__input validatePage1" required>
+                  <option disabled selected>Seleccione un género</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
+                </select>
+                <i class="formulario__validacion-estado fas fa-times-circle me-3"></i>
+              </div>
+              <p class="formulario__input-error">
+                Seleccione un género válido. El campo no puede estar vacío.
+              </p>
             </div>
 
             <!-- Grupo FirstName -->
             <div class="formulario__grupo" id="group__firstname">
               <label for="firstname" class="formulario__label">Primer Nombre</label>
               <div class="formulario__grupo-input">
-                <input type="text" v-model="firstName" name="firstname" id="firstname" class="formulario__input"
-                  placeholder="Ingrese primer nombre" autocomplete="off">
+                <input type="text" v-model="firstName" name="firstname" id="firstname" class="formulario__input validatePage1"
+                  placeholder="Ingrese primer nombre" autocomplete="off" required>
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
               </div>
               <p class="formulario__input-error">
-                El nombre debe tener un maximo de 40 caracteres y solo puede tener letras y espacios (puede llevar
+                El nombre debe tener un máximo de 40 caracteres y solo puede tener letras y espacios (puede llevar
                 acentos).
               </p>
             </div>
 
-            <!-- <div class="formulario__grupo" id="grupo__firstname">
-              <label for="firstname" class="label">Primer Nombre</label>
-              <input type="text" v-model="firstName" name="firstname" id="firstname"
-                placeholder="Ingrese primer nombre" class="input" autocomplete="off" />
-              <i class="formulario__validacion-estado fas fa-times-circle"></i>
-              <br>
-              <p class="formulario__input-error">El nombre debe tener un maximo de 40 caracteres y solo puede tener letras y espacios (puede llevar acentos).</p>
-            </div> -->
+            <!-- Grupo SecondName -->
+            <div class="formulario__grupo" id="group__secondname">
+              <label for="secondname" class="formulario__label">Segundo Nombre</label>
+              <div class="formulario__grupo-input">
+                <input type="text" v-model="secondName" name="secondname" id="secondname" class="formulario__input validatePage1"
+                  placeholder="Ingrese segundo nombre" autocomplete="off" required>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+              </div>
+              <p class="formulario__input-error">
+                El nombre debe tener un máximo de 40 caracteres y solo puede tener letras y espacios (puede llevar
+                acentos).
+              </p>
+            </div>
 
-            <div class="field mt-5">
-              <label for="secondname" class="label">Segundo Nombre</label>
-              <input type="text" v-model="secondName" name="secondname" id="secondname"
-                placeholder="Ingrese segundo nombre" class="input" autocomplete="off" />
+            <!-- Grupo DocumentType -->
+            <div class="formulario__grupo" id="group__typeId">
+              <label for="typeId" class="formulario__label">Tipo documento</label>
+              <div class="formulario__grupo-input">
+                <select v-model="typeId" name="typeId" id="typeId" class="formulario__input validatePage1" required>
+                  <option disabled selected>Seleccione tipo de documento</option>
+                  <option value="Cédula de ciudadanía">Cédula de ciudadanía</option>
+                  <option value="Pasaporte">Pasaporte</option>
+                  <option value="Cédula de extranjería">Cédula de extranjería</option>
+                </select>
+                <i class="formulario__validacion-estado fas fa-times-circle me-3"></i>
+              </div>
+              <p class="formulario__input-error">
+                Seleccione un Tipo de Documento. El campo no puede estar vacío.
+              </p>
             </div>
-            <div class="field">
-              <label for="born-date" class="label">Fecha de Nacimiento</label>
-              <input type="date" v-model="bornDate" name="born-date" id="born-date" class="input fs-6 mt-2 w-100"
-                min="" />
+
+            <!-- Grupo NumberDocument -->
+            <div class="formulario__grupo" id="group__numberId">
+              <label for="numberId" class="formulario__label">Número de documento</label>
+              <div class="formulario__grupo-input">
+                <input type="number" v-model="numberId" name="numberId" id="numberId" class="formulario__input validatePage1"
+                  placeholder="Ingrese numero de documento" minlength="5" autocomplete="off" required>
+                <i class="formulario__validacion-estado fas fa-times-circle me-2"></i>
+              </div>
+              <p class="formulario__input-error">
+                El número de Documento solo permite números, como mínimo 4 y máximo 10 dígitos.
+              </p>
             </div>
-            <div class="field">
-              <label for="type-id" class="label">Tipo documento</label>
-              <select v-model="typeId" name="type-id" id="type-id" class="select">
-                <option disabled selected>Seleccione tipo de documento</option>
-                <option value=" Cédula de ciudadanía">Cédula de ciudadanía</option>
-                <option value="Pasaporte">Pasaporte</option>
-                <option value="Cédula de extranjería">Cédula de extranjería</option>
-              </select>
+
+            <!-- Grupo PhotoDocument Front -->
+            <div class="formulario__grupo" id="group__photoFrontId">
+              <label for="photoFrontId" class="formulario__label">Foto documento - Frente</label>
+              <div class="formulario__grupo-input">
+                <input type="file" name="photoFrontId" id="photoFrontId" accept="image/jpeg" class="formulario__input validatePage1"
+                  required>
+                <i class="formulario__validacion-estado fas fa-times-circle me-2"></i>
+              </div>
+              <p class="formulario__input-error">
+                Solo se permite cargar un archivo JPG. El campo no puede estar vacío.
+              </p>
             </div>
-            <div class="field">
-              <label for="number-id" class="label">Numero de documento</label>
-              <input type="number" v-model="numberId" name="number-id" id="number-id"
-                placeholder="Ingrese numero de documento" class="input" minlength="5" autocomplete="off" />
+
+            <!-- Grupo PhotoDocument Back -->
+            <div class="formulario__grupo" id="group__photoBackId">
+              <label for="photoBackId" class="formulario__label">Foto documento - Reverso</label>
+              <div class="formulario__grupo-input">
+                <input type="file" name="photoBackId" id="photoBackId" accept="image/jpeg" class="formulario__input validatePage1"
+                  required>
+                <i class="formulario__validacion-estado fas fa-times-circle me-2"></i>
+              </div>
+              <p class="formulario__input-error">
+                Solo se permite cargar un archivo JPG. El campo no puede estar vacío.
+              </p>
             </div>
-            <div class="field">
-              <label for="photo-frontid" class="label">Foto documento - Frente</label>
-              <span class="input-group-text"><i class="pi pi-fw pi-file"></i></span>
-              <input type="file" name="photo-frontid" id="photo-frontid" accept="image/jpeg" class="input" />
+
+            <!-- Grupo Born Date -->
+            <div class="formulario__grupo" id="group__bornDate">
+              <label for="bornDate" class="formulario__label">Fecha de Nacimiento</label>
+              <div class="formulario__grupo-input">
+                <input type="date" v-model="bornDate" name="bornDate" id="bornDate" class="formulario__input validatePage1"
+                  min="1900-04-19" max="2005-04-19" required>
+                <i class="formulario__validacion-estado fas fa-times-circle me-3"></i>
+              </div>
+              <p class="formulario__input-error">
+                Debes ser mayor de Edad. No es valido tener menos de 18 años.
+              </p>
             </div>
-            <div class="field">
-              <label for="photo-backid" class="label">Foto documento - Reverso</label>
-              <span class="input-group-text"><i class="pi pi-fw pi-file"></i></span>
-              <input type="file" name="photo-backid" id="photo-backid" accept="image/jpeg" class="input" />
-            </div>
-            <div class="field">
-              <button class="firstNext next" v-on:click="nextPage">Siguiente</button>
+
+            <div class="formulario__grupo-btn-enviar mt-3">
+              <button class="firstNext next-1" v-on:click="validateFormAndNextPage1">Siguiente</button>
             </div>
           </div>
 
           <div class="page">
-            <div class="field">
-              <label for="email" class="label">Correo Electrónico</label>
-              <input type="email" v-model="email" name="email" id="email" placeholder="Ingrese Email de contacto"
-                class="input" autocomplete="off" />
+            <!-- Grupo Email -->
+            <div class="formulario__grupo" id="group__email">
+              <label for="email" class="formulario__label">Correo Electrónico</label>
+              <div class="formulario__grupo-input">
+                <input type="email" v-model="email" name="email" id="email" class="formulario__input validatePage2"
+                  placeholder="Ingrese Email de contacto" autocomplete="off" required>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+              </div>
+              <p class="formulario__input-error">
+                El correo solo debe contener letras, números, puntos, guiones y guion bajo.
+              </p>
             </div>
-            <div class="field">
-              <label for="psswd" class="label">Contraseña</label>
-              <input type="password" v-model="password" name="psswd" id="psswd" placeholder="Ingrese contraseña"
-                class="input" autocomplete="off" />
+
+            <!-- Grupo Cellphone -->
+            <div class="formulario__grupo" id="group__cellphone">
+              <label for="cellphone" class="formulario__label">Número celular</label>
+              <div class="formulario__grupo-input">
+                <input type="number" v-model="cellphone" name="cellphone" id="cellphone" class="formulario__input validatePage2"
+                  placeholder="Ingrese numero Celular" autocomplete="off" required>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+              </div>
+              <p class="formulario__input-error">
+                El teléfono solo puede contener números y como máximo 14 dígitos.
+              </p>
             </div>
-            <div class="field">
-              <label for="psswd-confirm" class="label">Confirmar contraseña</label>
-              <input type="password" v-model="passwordConfirm" name="psswd-confirm" id="psswd-confirm"
-                placeholder="Repita la contraseña" class="input" autocomplete="off" />
+
+            <!-- Grupo Password -->
+            <div class="formulario__grupo" id="group__password">
+              <label for="password" class="formulario__label">Contraseña</label>
+              <div class="formulario__grupo-input">
+                <input type="password" v-model="password" name="password" id="password" class="formulario__input validatePage2"
+                  placeholder="Ingrese contraseña" autocomplete="off" required>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+              </div>
+              <p class="formulario__input-error">
+                La contraseña tiene que ser de 4 a 12 digitos.
+              </p>
             </div>
-            <div class="field">
-              <label for="telephone" class="label">Numero teléfono</label>
-              <input type="number" v-model="telephone" name="telephone" id="telephone"
-                placeholder="Ingrese numero Telefonico" class="input" autocomplete="off" />
+
+            <!-- Grupo Confirm Password -->
+            <div class="formulario__grupo" id="group__password2">
+              <label for="psswdConfirm" class="formulario__label">Confirmar contraseña</label>
+              <div class="formulario__grupo-input">
+                <input type="password" v-model="passwordConfirm" name="psswdConfirm" id="psswdConfirm" class="formulario__input validatePage2"
+                  placeholder="Repita la contraseña" autocomplete="off" required>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+              </div>
+              <p class="formulario__input-error">
+                Ambas contraseñas deben de ser iguales
+              </p>
             </div>
-            <div class="field">
-              <label for="cellphone" class="label">Numero celular</label>
-              <input type="number" v-model="cellphone" name="cellphone" id="cellphone"
-                placeholder="Ingrese numero Celular" class="input" autocomplete="off" />
+
+            <!-- Grupo Telephone -->
+            <div class="formulario__grupo" id="group__telephone">
+              <label for="telephone" class="formulario__label">Número teléfono</label>
+              <div class="formulario__grupo-input">
+                <input type="number" v-model="telephone" name="telephone" id="telephone" class="formulario__input validatePage2"
+                  placeholder="Ingrese numero Telefonico" autocomplete="off" required>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+              </div>
+              <p class="formulario__input-error">
+                El teléfono solo puede contener números y como máximo 10 dígitos.
+              </p>
             </div>
-            <div class="field btns">
-              <button class="prev1 prev" v-on:click="prevPage">Atrás</button>
-              <button class="next1 next" v-on:click="nextPage">Siguiente</button>
+
+            <div class="formulario__grupo-btn-enviar2 mt-3">
+              <button class="prev1 prev-1" v-on:click="prevPage">Atrás</button>
+              <button class="next1 next-2" v-on:click="validateFormAndNextPage2">Siguiente</button>
             </div>
           </div>
 
@@ -190,12 +286,50 @@ export default {
   },
   mounted() {
     sendForm(),
-      fieldValidator()
+    fieldValidator()
   },
   validations: {
 
   },
   methods: {
+    validateFormAndNextPage1() {
+      const validateFieldsPage1 = document.querySelectorAll('.validatePage1')
+      let isValid = true;
+
+      validateFieldsPage1.forEach(field => {
+        if (field.value.trim() === '') {
+          isValid = false
+          field.classList.add('invalid')
+        } else {
+          field.classList.remove('invalid')
+        }
+      });
+
+      if (isValid) {
+        this.nextPage();
+      } else {
+        alert('Por favor diligencia todos los campos obligatorios');
+      }
+    },
+    validateFormAndNextPage2() {
+      const validateFieldsPage2 = document.querySelectorAll('.validatePage2')
+      let isValid = true;
+
+      validateFieldsPage2.forEach(field => {
+        if (field.value.trim() === '') {
+          isValid = false
+          field.classList.add('invalid')
+        } else {
+          field.classList.remove('invalid')
+        }
+      });
+
+      if (isValid) {
+        this.nextPage();
+      } else {
+        alert('Por favor diligencia todos los campos obligatorios');
+      }
+    },
     nextPage() {
       event.preventDefault();
       if (this.currentPage === 1) {
@@ -216,7 +350,7 @@ export default {
     prevPage() {
       event.preventDefault();
       if (this.currentPage === 2) {
-        this.$el.querySelector('.slide-page').style.marginLeft = "3%";
+        this.$el.querySelector('.slide-page').style.marginLeft = "0%";
         this.$el.querySelectorAll('.bullet')[this.currentPage - 2].classList.remove("active");
         this.$el.querySelectorAll('.check')[this.currentPage - 2].classList.remove("active");
         this.$el.querySelectorAll('.step p')[this.currentPage - 2].classList.remove("active");
@@ -243,14 +377,14 @@ export default {
       console.log('Genero:', this.gender)
       console.log('Primer Nombre:', this.firstName)
       console.log('Segundo Nombre:', this.secondName)
-      console.log('Fecha de Nacimiento:', this.bornDate)
       console.log('Tipo de documento:', this.typeId)
       console.log('Numero documento:', this.numberId)
+      console.log('Fecha de Nacimiento:', this.bornDate)
       console.log('Correo electronico:', this.email)
+      console.log('Celular:', this.cellphone)
       console.log('Contraseña:', this.password)
       console.log('Validacion Contraseña:', this.passwordConfirm)
       console.log('Telefono:', this.telephone)
-      console.log('Celular:', this.cellphone)
       console.log('Direccion residencia:', this.address)
       console.log('Codigo Postal:', this.postalCode)
       this.country = ''
@@ -271,6 +405,7 @@ export default {
   }
 }
 
+
 // Importando JQuery y asociandolo a una variable
 const $ = require("jquery");
 // Declarando globalmente a JQuery
@@ -283,7 +418,7 @@ $(document).ready(function () {
     });
     // Aplico método sort para ordenar los países alfabéticamente
     countries.sort();
-    var select = $("#country-select");
+    var select = $("#country");
     $.each(countries, function (i, country) {
       var option = $("<option>").attr("value", country).text(country);
       select.append(option);
@@ -293,11 +428,19 @@ $(document).ready(function () {
 </script>
 
 <style>
+/* Estilos Principales */
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .container-global {
   align-items: center;
   display: flex;
   justify-content: center;
   overflow: hidden;
+  width: 800px;
 }
 
 .containerppal {
@@ -305,14 +448,15 @@ $(document).ready(function () {
   border-radius: 10px;
   padding: 40px 35px 10px 35px;
   text-align: center;
-  width: 500px;
+  width: 100%;
   border: 1px solid blue;
+  /*min-height: 1500px;*/
 }
 
 .containerppal header {
   font-size: 35px;
   font-weight: 600;
-  margin: 0 0 30px 0;
+  margin: 0 0 25px 0;
 }
 
 .containerppal .form-outer {
@@ -349,12 +493,12 @@ $(document).ready(function () {
   align-items: center;
   border: 2px solid #000;
   border-radius: 50%;
-  height: 35px;
-  line-height: 25px;
+  height: 55px;
+  line-height: 50px;
   transition: 0.2s;
-  width: 35px;
+  width: 55px;
   position: relative;
-  left: 52.5px;
+  margin: 0px 38%;
 }
 
 .progress-bar-header .step .bullet.active {
@@ -377,11 +521,11 @@ $(document).ready(function () {
 .progress-bar-header .step .bullet:after {
   content: '';
   height: 3px;
-  width: 60px;
+  width: 100px;
   background: #262626;
   position: absolute;
   bottom: 11px;
-  right: -81px;
+  right: -150px;
 }
 
 .progress-bar-header .step .bullet.active:after {
@@ -390,6 +534,7 @@ $(document).ready(function () {
   transform-origin: left;
   animation: animate 0.3s linear forwards;
 }
+
 @keyframes animate {
   100% {
     transform: scaleX(1);
@@ -421,17 +566,38 @@ $(document).ready(function () {
 }
 
 /* ---Estilos navegación entre Formularios ---*/
-.form-outer form .page {
-  margin-left: 50px;
-  width: 25%;
-  transition: margin-left 0.3s ease-in-out;
+.form_ppal {
+  height: 800px;
+  margin-top: 20px;
 }
 
-.page3 {
-  margin-left: 5px;
-  height: 100vh;
+.form-outer form .page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  height: 50px;
+  padding: auto;
+  /*margin-left: 25px;*/
   transition: margin-left 0.3s ease-in-out;
   width: 25%;
+}
+
+.form-outer form .page3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  height: 100vh;
+  margin-left: 5px;
+  transition: margin-left 0.3s ease-in-out;
+  width: 25%;
+}
+
+input[required].invalid {
+  border-color: red;
+}
+
+select[required].invalid {
+  border-color: red;
 }
 
 .next,
@@ -452,7 +618,59 @@ $(document).ready(function () {
   width: 100%;
 }
 
-.next:hover {
+.next-1 {
+  background: #1FC1EB;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  height: 50px;
+  margin-top: -20px;
+  letter-spacing: 1px;
+  transition: 0.5s ease;
+  text-transform: uppercase;
+  width: 30%;
+}
+
+.next-2 {
+  background: #1FC1EB;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  height: 50px;
+  margin-top: -20px;
+  margin-left: 20px;
+  letter-spacing: 1px;
+  transition: 0.5s ease;
+  text-transform: uppercase;
+  width: 30%;
+}
+
+
+.prev-1 {
+  background: #1FC1EB;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  height: 50px;
+  margin-top: -20px;
+  letter-spacing: 1px;
+  transition: 0.5s ease;
+  text-transform: uppercase;
+  width: 30%;
+}
+
+.next:hover,
+.next-1:hover,
+.next-2:hover {
   color: #333;
 }
 
@@ -478,7 +696,13 @@ $(document).ready(function () {
   margin-top: -20px !important;
 }
 
-/* ---Estilos campos Formulario ---*/
+/* --- Estilos campos Formulario ---*/
+.iconox {
+  position: absolute;
+  height: 45px;
+  border: none;
+}
+
 .formulario__grupo {
   display: flex;
   flex-direction: column;
@@ -489,7 +713,8 @@ $(document).ready(function () {
   position: relative;
 }
 
-.form-outer form .page .field, .form-outer form .page3 .field {
+.form-outer form .page .field,
+.form-outer form .page3 .field {
   display: flex;
   height: 45px;
   margin: 45px 0;
@@ -557,12 +782,29 @@ $(document).ready(function () {
   display: none;
   font-size: 12px;
   margin-bottom: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
   text-align: justify;
 }
 
 .formulario__input-error-activo {
   display: block;
+}
+
+.formulario__grupo-btn-enviar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+formulario__grupo-btn-enviar2 {
+  align-items: center;
+}
+
+.formulario__grupo-terminos,
+.formulario__mensaje,
+.formulario__grupo-btn-enviar,
+.formulario__grupo-btn-enviar2 {
+  grid-column: span 2;
 }
 
 /* ---Estilos para validación ---*/
@@ -583,5 +825,4 @@ $(document).ready(function () {
 .formulario__grupo-incorrecto .formulario__validacion-estado {
   color: #bb2929;
   opacity: 1;
-}
-</style>
+}</style>

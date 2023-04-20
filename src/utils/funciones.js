@@ -1,5 +1,20 @@
+import moment from 'moment'
+import Swal from "sweetalert2";
+
+// Función para mostrar Alerta de campo faltante
+export function mostrarAlerta(titulo, icono) {
+    // Generar ventana personalizada
+    Swal.fire({
+        title:titulo,
+        icon:icono,
+        customClass:{confirmButton: 'btn btn-primary', popup: 'animate zoonIn'},
+        buttonsStyling:false
+    });
+}
+
+
+// Función para activar alerta de Envio del formulario y activar paso final en guia visual
 export function sendForm() {
-    console.log('File function submit load...');
     const submitBtn = document.querySelector("#btnSendForm");
     const progressText = document.querySelectorAll(".step p");
     const progressCheck = document.querySelectorAll(".step .check");
@@ -7,18 +22,22 @@ export function sendForm() {
     let current = 1;
 
     submitBtn.addEventListener("click", function () {
+        // Completando la barra de progreso en el paso 3
         bullet[current - 1].classList.add("active");
         progressCheck[current - 1].classList.add("active");
         progressText[current - 1].classList.add("active");
         current += 1;
+        // Dandole acción al boton de envio final
         setTimeout(function () {
-            alert("Your Form Successfully Signed up");
-            console.log('Formulario diligenciado OK')
+            mostrarAlerta('El formulario se envió de manera exitosa', 'success');
+            console.log('Formulario diligenciado OK!')
             location.reload();
-        }, 5000);
+        }, 6000);
     });
 }
 
+
+// Función para validar los campos con expresiones regulares
 export function fieldValidator() {
     const formulario = document.getElementById('form_ppal');
     const inputs = document.querySelectorAll('#form_ppal input');
@@ -38,6 +57,8 @@ export function fieldValidator() {
         cellphone: /^\d{7,14}$/, // 7 a 14 numeros.
         password: /^.{4,12}$/, // 4 a 12 digitos.
         telephone: /^\d{7,10}$/, // 7 a 10 numeros.
+        address: /^([A-Za-z0-9áéíóúñ\s#-]){5,50}$/, // Letras, números, espacios, guiones y la almohadilla (#) para referenciar apartamentos o números de puerta
+        postalCode: /^\d{3,6}$/, // 3 a 6 numeros.
     }
 
     const fields = {
@@ -54,6 +75,8 @@ export function fieldValidator() {
         cellphone: false,
         password: false,
         telephone: false,
+        address: false,
+        postalCode: false
     }
 
     const validateForm = (e) => {
@@ -122,15 +145,23 @@ export function fieldValidator() {
 
             case "password":
                 validateField(expressions.password, e.target, 'password');
-                psswdConfirm2();
+                passwordConfirm2();
             break;
 
             case "psswdConfirm":
-                psswdConfirm2();
+                passwordConfirm2();
             break;
 
             case "telephone":
                 validateField(expressions.telephone, e.target, 'telephone');
+            break;
+
+            case "address":
+                validateField(expressions.address, e.target, 'address');
+            break;
+
+            case "postalCode":
+                validateField(expressions.postalCode, e.target, 'postalCode');
             break;
         }
     }
@@ -171,7 +202,7 @@ export function fieldValidator() {
         }
     }
 
-    const psswdConfirm2 = () => {
+    const passwordConfirm2 = () => {
         const inputPassword1 = document.getElementById('password');
         const inputPassword2 = document.getElementById('psswdConfirm');
     
@@ -203,6 +234,8 @@ export function fieldValidator() {
     });
 }
 
+
+// Función para realizar el comparativo de Edad frente a la fecha actual
 export function validateAge(date) {
     const age = moment().diff(date, 'years');
     if (age < 18) {

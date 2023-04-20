@@ -13,30 +13,6 @@ export function mostrarAlerta(titulo, icono) {
 }
 
 
-// Función para activar alerta de Envio del formulario y activar paso final en guia visual
-export function sendForm() {
-    const submitBtn = document.querySelector("#btnSendForm");
-    const progressText = document.querySelectorAll(".step p");
-    const progressCheck = document.querySelectorAll(".step .check");
-    const bullet = document.querySelectorAll(".step .bullet");
-    let current = 1;
-
-    submitBtn.addEventListener("click", function () {
-        // Completando la barra de progreso en el paso 3
-        bullet[current - 1].classList.add("active");
-        progressCheck[current - 1].classList.add("active");
-        progressText[current - 1].classList.add("active");
-        current += 1;
-        // Dandole acción al boton de envio final
-        setTimeout(function () {
-            mostrarAlerta('El formulario se envió de manera exitosa', 'success');
-            console.log('Formulario diligenciado OK!')
-            location.reload();
-        }, 6000);
-    });
-}
-
-
 // Función para validar los campos con expresiones regulares
 export function fieldValidator() {
     const formulario = document.getElementById('form_ppal');
@@ -54,7 +30,7 @@ export function fieldValidator() {
         photoBackId: /^(?!\s*$).+/, // Expresión regular para validar que no esté vacío.
         bornDate: /^(?!\s*$).+/, // Expresión regular para validar que no esté vacío.
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //Validar que tenga semantica de email
-        cellphone: /^\d{7,14}$/, // 7 a 14 numeros.
+        cellphone: /^\d{10,14}$/, // 7 a 14 numeros.
         password: /^.{4,12}$/, // 4 a 12 digitos.
         telephone: /^\d{7,10}$/, // 7 a 10 numeros.
         address: /^([A-Za-z0-9áéíóúñ\s#-]){5,50}$/, // Letras, números, espacios, guiones y la almohadilla (#) para referenciar apartamentos o números de puerta
@@ -242,4 +218,28 @@ export function validateAge(date) {
         return false;
     }
     return true;
+}
+
+
+// Función para activar alerta de Envio del formulario y activar paso final en guia visual
+export function sendForm() {
+    const submitBtn = document.querySelector("#btnSendForm");
+    const progressText = document.querySelectorAll(".step p");
+    const progressCheck = document.querySelectorAll(".step .check");
+    const bullet = document.querySelectorAll(".step .bullet");
+    let current = 1;
+
+    submitBtn.addEventListener("click", function () {
+        // Completando la barra de progreso en el paso 3
+        bullet[current - 1].classList.add("active");
+        progressCheck[current - 1].classList.add("active");
+        progressText[current - 1].classList.add("active");
+        current += 1;
+        // Dandole acción al boton de envio final
+        setTimeout(function () {
+            mostrarAlerta('El formulario se envió de manera exitosa', 'success');
+            console.log('Formulario diligenciado OK!')
+            location.reload();
+        }, 6000);
+    });
 }

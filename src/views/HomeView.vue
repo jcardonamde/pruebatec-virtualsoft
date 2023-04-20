@@ -34,7 +34,7 @@
 
             <!-- Grupo Country -->
             <div class="formulario__grupo" id="group__country">
-              <label for="country" class="formulario__label">País</label>
+              <label for="country" class="form__label">País</label>
               <div class="formulario__grupo-input">
                 <select v-model="country" name="country" id="country" class="formulario__input validatePage1" required>
                   <option disabled selected>Seleccione un país</option>
@@ -48,7 +48,7 @@
 
             <!-- Grupo Gender -->
             <div class="formulario__grupo" id="group__gender">
-              <label for="gender" class="formulario__label">Genero</label>
+              <label for="gender" class="form__label">Genero</label>
               <div class="formulario__grupo-input">
                 <select v-model="gender" name="gender" id="gender" class="formulario__input validatePage1" required>
                   <option disabled selected>Seleccione un género</option>
@@ -64,7 +64,7 @@
 
             <!-- Grupo FirstName -->
             <div class="formulario__grupo" id="group__firstname">
-              <label for="firstname" class="formulario__label">Primer Nombre</label>
+              <label for="firstname" class="form__label">Primer Nombre</label>
               <div class="formulario__grupo-input">
                 <input type="text" v-model="firstName" name="firstname" id="firstname"
                   class="formulario__input validatePage1" placeholder="Ingrese primer nombre" autocomplete="off" required>
@@ -78,10 +78,11 @@
 
             <!-- Grupo SecondName -->
             <div class="formulario__grupo" id="group__secondname">
-              <label for="secondname" class="formulario__label">Segundo Nombre</label>
+              <label for="secondname" class="form__label">Segundo Nombre</label>
               <div class="formulario__grupo-input">
                 <input type="text" v-model="secondName" name="secondname" id="secondname"
-                  class="formulario__input validatePage1 " placeholder="Ingrese segundo nombre" autocomplete="off" required>
+                  class="formulario__input validatePage1 " placeholder="Ingrese segundo nombre" autocomplete="off"
+                  required>
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
               </div>
               <p class="formulario__input-error">
@@ -92,7 +93,7 @@
 
             <!-- Grupo DocumentType -->
             <div class="formulario__grupo" id="group__typeId">
-              <label for="typeId" class="formulario__label">Tipo documento</label>
+              <label for="typeId" class="form__label">Tipo documento</label>
               <div class="formulario__grupo-input">
                 <select v-model="typeId" name="typeId" id="typeId" class="formulario__input validatePage1" required>
                   <option disabled selected>Seleccione tipo de documento</option>
@@ -109,7 +110,7 @@
 
             <!-- Grupo NumberDocument -->
             <div class="formulario__grupo" id="group__numberId">
-              <label for="numberId" class="formulario__label">Número de documento</label>
+              <label for="numberId" class="form__label">Número de documento</label>
               <div class="formulario__grupo-input">
                 <input type="number" v-model="numberId" name="numberId" id="numberId"
                   class="formulario__input validatePage1" placeholder="Ingrese numero de documento" minlength="5"
@@ -123,7 +124,7 @@
 
             <!-- Grupo PhotoDocument Front -->
             <div class="formulario__grupo" id="group__photoFrontId">
-              <label for="photoFrontId" class="formulario__label">Foto documento - Frente</label>
+              <label for="photoFrontId" class="form__label">Foto documento - Frente</label>
               <div class="formulario__grupo-input">
                 <input type="file" name="photoFrontId" id="photoFrontId" accept="image/jpeg"
                   class="formulario__input validatePage1" required>
@@ -136,7 +137,7 @@
 
             <!-- Grupo PhotoDocument Back -->
             <div class="formulario__grupo" id="group__photoBackId">
-              <label for="photoBackId" class="formulario__label">Foto documento - Reverso</label>
+              <label for="photoBackId" class="form__label">Foto documento - Reverso</label>
               <div class="formulario__grupo-input">
                 <input type="file" name="photoBackId" id="photoBackId" accept="image/jpeg"
                   class="formulario__input validatePage1" required>
@@ -149,7 +150,7 @@
 
             <!-- Grupo Born Date -->
             <div class="formulario__grupo" id="group__bornDate">
-              <label for="bornDate" class="formulario__label">Fecha de Nacimiento</label>
+              <label for="bornDate" class="form__label">Fecha de Nacimiento</label>
               <div class="formulario__grupo-input">
                 <input type="date" v-model="bornDate" name="bornDate" id="bornDate"
                   class="formulario__input validatePage1" min="1900-04-19" max="2005-04-20" required>
@@ -168,7 +169,7 @@
           <div class="page">
             <!-- Grupo Email -->
             <div class="formulario__grupo" id="group__email">
-              <label for="email" class="formulario__label">Correo Electrónico</label>
+              <label for="email" class="form__label">Correo Electrónico</label>
               <div class="formulario__grupo-input">
                 <input type="email" v-model="email" name="email" id="email" class="formulario__input validatePage2"
                   placeholder="Ingrese Email de contacto" autocomplete="off" required>
@@ -181,7 +182,7 @@
 
             <!-- Grupo Cellphone -->
             <div class="formulario__grupo" id="group__cellphone">
-              <label for="cellphone" class="formulario__label">Número celular</label>
+              <label for="cellphone" class="form__label">Número celular</label>
               <div class="formulario__grupo-input">
                 <input type="number" v-model="cellphone" name="cellphone" id="cellphone"
                   class="formulario__input validatePage2" placeholder="Ingrese numero Celular" autocomplete="off"
@@ -189,13 +190,13 @@
                 <i class="formulario__validacion-estado fas fa-times-circle me-3"></i>
               </div>
               <p class="formulario__input-error">
-                El teléfono solo puede contener números. Mínimo 7 y como máximo 14 dígitos.
+                El teléfono solo puede contener números. Mínimo 10 y como máximo 14 dígitos.
               </p>
             </div>
 
             <!-- Grupo Password -->
             <div class="formulario__grupo" id="group__password">
-              <label for="password" class="formulario__label">Contraseña</label>
+              <label for="password" class="form__label">Contraseña</label>
               <div class="formulario__grupo-input">
                 <input type="password" v-model="password" name="password" id="password"
                   class="formulario__input validatePage2" placeholder="Ingrese contraseña" autocomplete="off" required>
@@ -208,7 +209,7 @@
 
             <!-- Grupo Confirm Password -->
             <div class="formulario__grupo" id="group__password2">
-              <label for="psswdConfirm" class="formulario__label">Confirmar contraseña</label>
+              <label for="psswdConfirm" class="form__label">Confirmar contraseña</label>
               <div class="formulario__grupo-input">
                 <input type="password" v-model="passwordConfirm" name="psswdConfirm" id="psswdConfirm"
                   class="formulario__input validatePage2" placeholder="Repita la contraseña" autocomplete="off" required>
@@ -221,7 +222,7 @@
 
             <!-- Grupo Telephone -->
             <div class="formulario__grupo" id="group__telephone">
-              <label for="telephone" class="formulario__label">Número teléfono</label>
+              <label for="telephone" class="form__label">Número teléfono</label>
               <div class="formulario__grupo-input">
                 <input type="number" v-model="telephone" name="telephone" id="telephone"
                   class="formulario__input validatePage2" placeholder="Ingrese numero Telefonico" autocomplete="off"
@@ -242,7 +243,7 @@
           <div class="page3">
             <!-- Grupo Address -->
             <div class="formulario__grupo" id="group__address">
-              <label for="address" class="formulario__label">Dirección residencia</label>
+              <label for="address" class="form__label">Dirección residencia</label>
               <div class="formulario__grupo-input">
                 <input type="text" v-model="address" name="address" id="address" class="formulario__input validatePage3"
                   placeholder="Ingrese Dirección de Residencia" autocomplete="off" required>
@@ -256,10 +257,10 @@
 
             <!-- Grupo PostalCode -->
             <div class="formulario__grupo" id="group__postalCode">
-              <label for="postalCode" class="formulario__label">Código Postal</label>
+              <label for="postalCode" class="form__label">Código Postal</label>
               <div class="formulario__grupo-input">
-                <input type="number" v-model="postalCode" name="postalCode" id="postalCode" class="formulario__input validatePage3"
-                  placeholder="Ingrese codigo postal" autocomplete="off" required>
+                <input type="number" v-model="postalCode" name="postalCode" id="postalCode"
+                  class="formulario__input validatePage3" placeholder="Ingrese codigo postal" autocomplete="off" required>
                 <i class="formulario__validacion-estado fas fa-times-circle me-3"></i>
               </div>
               <p class="formulario__input-error">
@@ -268,8 +269,9 @@
             </div>
 
             <div class="formulario__grupo-btn-enviar2">
-              <button class="prev2 prev-1" v-on:click="prevPage">Atrás</button>
-              <button class="submitBtn me-3" id="btnSendForm" v-on:click="enviarFormulario" @click="sendForm">Enviar</button>
+              <button class="prev2 prev-2" v-on:click="prevPage">Atrás</button>
+              <button class="submitBtn me-3" id="btnSendForm" v-on:click="validateFormAndEndPage3">Enviar</button>
+              <!-- <button class="submitBtn me-3" id="btnSendForm" v-on:click="enviarFormulario" @click="sendForm">Enviar</button> -->
             </div>
           </div>
         </form>
@@ -279,7 +281,7 @@
 </template>
 
 <script>
-import { mostrarAlerta, sendForm, fieldValidator, validateAge } from '@/utils/funciones';
+import { mostrarAlerta, fieldValidator, validateAge } from '@/utils/funciones';
 
 export default {
   name: 'Formulario',
@@ -303,8 +305,7 @@ export default {
     }
   },
   mounted() {
-    sendForm(),
-      fieldValidator()
+    fieldValidator()
   },
   validations: {
   },
@@ -347,6 +348,25 @@ export default {
         mostrarAlerta('Por favor diligencia todos los campos son obligatorios', 'warning');
       }
     },
+    validateFormAndEndPage3() {
+      const validateFieldsPage3 = document.querySelectorAll('.validatePage3');
+      let isFieldsValid = true;
+
+      validateFieldsPage3.forEach(field => {
+        if (field.value.trim() === '') {
+          isFieldsValid = false;
+          field.classList.add('invalid');
+        } else {
+          field.classList.remove('invalid');
+        }
+      });
+
+      if (isFieldsValid) {
+        this.enviarFormulario();
+      } else {
+        mostrarAlerta('Por favor diligencia todos los campos son obligatorios', 'warning');
+      }
+    },
     nextPage() {
       event.preventDefault();
       if (this.currentPage === 1) {
@@ -383,25 +403,6 @@ export default {
     },
     enviarFormulario() {
       event.preventDefault();
-
-      // const validateFieldsPage3 = document.querySelectorAll('.validatePage3');
-      // let isFieldsValid = true;
-
-      // validateFieldsPage3.forEach(field => {
-      //   if (field.value.trim() === '') {
-      //     isFieldsValid = false;
-      //     field.classList.add('invalid');
-      //   } else {
-      //     field.classList.remove('invalid');
-      //   }
-      // });
-
-      // if (isFieldsValid) {
-      //   console.log('Puede enviar la info');
-      // } else {
-      //   mostrarAlerta('Por favor diligencia todos los campos son obligatorios', 'warning');
-      // }
-
       if (this.currentPage === 3) {
         // Cambiando estado a completado en el paso 3 del formulario
         this.$el.querySelectorAll('.bullet')[this.currentPage - 1].classList.add("active");
@@ -410,20 +411,22 @@ export default {
       }
 
       // Imprimiendo en consola la información capturada en el formulario
-      console.log('Pais:', this.country)
-      console.log('Genero:', this.gender)
-      console.log('Primer Nombre:', this.firstName)
-      console.log('Segundo Nombre:', this.secondName)
-      console.log('Tipo de documento:', this.typeId)
-      console.log('Numero documento:', this.numberId)
-      console.log('Fecha de Nacimiento:', this.bornDate)
-      console.log('Correo electronico:', this.email)
-      console.log('Celular:', this.cellphone)
-      console.log('Contraseña:', this.password)
-      console.log('Validacion Contraseña:', this.passwordConfirm)
-      console.log('Telefono:', this.telephone)
-      console.log('Direccion residencia:', this.address)
-      console.log('Codigo Postal:', this.postalCode)
+      console.log('Pais:', this.country);
+      console.log('Genero:', this.gender);
+      console.log('Primer Nombre:', this.firstName);
+      console.log('Segundo Nombre:', this.secondName);
+      console.log('Tipo de documento:', this.typeId);
+      console.log('Numero documento:', this.numberId);
+      console.log('Fecha de Nacimiento:', this.bornDate);
+      console.log('Correo electronico:', this.email);
+      console.log('Celular:', this.cellphone);
+      console.log('Contraseña:', this.password);
+      console.log('Validacion Contraseña:', this.passwordConfirm);
+      console.log('Telefono:', this.telephone);
+      console.log('Direccion residencia:', this.address);
+      console.log('Codigo Postal:', this.postalCode);
+      console.log('Formulario diligenciado OK!');
+
       this.country = ''
       this.gender = ''
       this.firstName = ''
@@ -438,6 +441,11 @@ export default {
       this.cellphone = ''
       this.address = ''
       this.postalCode = ''
+
+      setTimeout(() => {
+        mostrarAlerta('El formulario se envió de manera exitosa', 'success');
+        location.reload();
+      }, 6000);
     },
   }
 }
@@ -491,7 +499,7 @@ $(document).ready(function () {
   margin: 0 0 25px 0;
 }
 
-.containerppal .form-outer {
+.form-outer {
   overflow: hidden;
   width: 100%;
 }
@@ -688,7 +696,7 @@ select[required].invalid {
   width: 30%;
 }
 
-.prev-1 {
+.prev-1, .prev-2 {
   background: #1FC1EB;
   border: none;
   border-radius: 5px;
@@ -710,26 +718,9 @@ select[required].invalid {
   color: #333;
 }
 
-.prev:hover {
+.prev-1:hover,
+.prev-2:hover {
   color: #333;
-}
-
-.btns button {
-  margin-top: -20px !important;
-}
-
-.btns button.prev {
-  margin-right: 3px;
-  font-size: 17px;
-}
-
-.btns button.next,
-.btns button.submitBtn {
-  margin-left: 3px;
-}
-
-.btns button {
-  margin-top: -20px !important;
 }
 
 /* ---------------------------------------------- */
@@ -760,15 +751,9 @@ select[required].invalid {
   position: relative;
 }
 
-.formulario__label {
+.form__label {
   cursor: pointer;
   font-weight: 700;
-  position: absolute;
-  top: -30px;
-}
-
-.label {
-  font-weight: 500;
   position: absolute;
   top: -30px;
 }
@@ -782,7 +767,6 @@ select[required].invalid {
   padding-left: 15px;
   transition: .3s ease all;
   width: 100%;
-
 }
 
 .input {
@@ -834,12 +818,10 @@ select[required].invalid {
   flex-direction: column;
 }
 
-formulario__grupo-btn-enviar2 {
+.formulario__grupo-btn-enviar2 {
   align-items: center;
 }
 
-.formulario__grupo-terminos,
-.formulario__mensaje,
 .formulario__grupo-btn-enviar,
 .formulario__grupo-btn-enviar2 {
   grid-column: span 2;
@@ -853,7 +835,7 @@ formulario__grupo-btn-enviar2 {
   opacity: 1;
 }
 
-.formulario__grupo-incorrecto .formulario__label {
+.formulario__grupo-incorrecto .form__label {
   color: #bb2929;
   opacity: 1;
 }

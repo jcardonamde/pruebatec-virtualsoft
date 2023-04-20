@@ -1,5 +1,11 @@
 # pruebavirtualsoft
 
+I invite you to see the exploration of my solution:
+
+👀 Previews: https://www.youtube.com/watch?v=iLD6q4QupvI
+
+
+
 ## Project setup
 ```
 npm install
